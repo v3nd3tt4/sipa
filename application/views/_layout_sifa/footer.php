@@ -26,6 +26,19 @@
 <!-- Page level custom scripts -->
 <script src="<?= base_url('assets/'); ?>js/demo/chart-pie-demo.js"></script>
 <script src="<?= base_url('assets/'); ?>js/demo/chart-bar-demo.js"></script>
+<script src="<?= base_url('assets/'); ?>vendor/datatables/jquery.dataTables.min.js"></script>
+<script src="<?= base_url('assets/'); ?>vendor/datatables/dataTables.bootstrap4.min.js"></script>
+
+<script>
+    $(document).ready(function(){
+        $('.dataTables').dataTable();
+    });
+</script>
+<?php
+    if(!empty($script)){
+        $this->load->view($script);
+    }
+?>
 </body>
 
 </html>
