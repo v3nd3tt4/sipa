@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') or exit('No direct script access allowed');
 
-class Home extends CI_Controller
+class Unit extends CI_Controller
 {
     public function __construct()
     {
@@ -10,11 +10,12 @@ class Home extends CI_Controller
 
     public function index()
     {
-        $data['title'] = 'Dashboard';
+        $data['title'] = 'Unit';
+        $data['script'] = 'unit/script';
         $this->load->view('_layout_sifa/header', $data);
         $this->load->view('_layout_sifa/sidebar', $data);
         $this->load->view('_layout_sifa/topbar', $data);
-        $this->load->view('sifa/index', $data);
-        $this->load->view('_layout_sifa/footer');
+        $this->load->view('unit/index', $data);
+        $this->load->view('_layout_sifa/footer', $data);
     }
 }
