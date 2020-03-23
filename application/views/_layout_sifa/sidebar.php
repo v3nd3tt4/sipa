@@ -16,7 +16,7 @@
     <div class="sidebar-heading">
         Features
     </div>
-    <li class="nav-item <?=$title=='Unit' || $title=='Tambah Unit' || $title=='Edit Unit' ? 'active' :'' ?>">
+    <li class="nav-item <?=$title=='Unit' || $title=='Tambah Unit' || $title=='Edit Unit' || $title=='Pasien' || $title=='Tambah Pasien' || $title=='Edit Pasien' ? 'active' :'' ?>">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseBootstrap" aria-expanded="true" aria-controls="collapseBootstrap">
             <i class="far fa-fw fa-window-maximize"></i>
             <span>Master Data</span>
@@ -26,7 +26,7 @@
                 <h6 class="collapse-header">Data</h6>
                 <a class="collapse-item <?=$title=='Unit' || $title=='Tambah Unit' || $title=='Edit Unit' ? 'active' :'' ?>" href="<?= base_url(); ?>unit">Data Unit</a>
                 <a class="collapse-item" href="<?= base_url('element/button'); ?>">Data User</a>
-                <a class="collapse-item" href="<?= base_url('element/dropdown'); ?>">Data Pasien</a>
+                <a class="collapse-item <?=$title=='Pasien' || $title=='Tambah Pasien' || $title=='Edit Pasien' ? 'active' :'' ?>" href="<?= base_url(); ?>pasien">Data Pasien</a>
                 <a class="collapse-item" href="<?= base_url('element/dropdown'); ?>">Data Obat</a>
             </div>
         </div>
