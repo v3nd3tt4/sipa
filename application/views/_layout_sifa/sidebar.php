@@ -24,8 +24,8 @@
         <div id="collapseBootstrap" class="collapse show" aria-labelledby="headingBootstrap" data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
                 <h6 class="collapse-header">Data</h6>
-                <a class="collapse-item <?=$title=='User' || $title=='Tambah User' || $title=='Edit User' ? 'active' :'' ?>" href="<?= base_url(); ?>user">Data User</a>
                 <a class="collapse-item <?=$title=='Unit' || $title=='Tambah Unit' || $title=='Edit Unit' ? 'active' :'' ?>" href="<?= base_url(); ?>unit">Data Unit</a>
+                <a class="collapse-item <?=$title=='User' || $title=='Tambah User' || $title=='Edit User' ? 'active' :'' ?>" href="<?= base_url(); ?>user">Data User</a>
                 <a class="collapse-item <?=$title=='Dokter' || $title=='Tambah Dokter' || $title=='Edit Dokter' ? 'active' :'' ?>" href="<?= base_url(); ?>dokter">Data Dokter</a>
                 <a class="collapse-item <?=$title=='Pasien' || $title=='Tambah Pasien' || $title=='Edit Pasien' ? 'active' :'' ?>" href="<?= base_url(); ?>pasien">Data Pasien</a>
                 

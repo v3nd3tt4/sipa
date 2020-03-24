@@ -6,6 +6,9 @@ class Unit extends CI_Controller
     public function __construct()
     {
         parent::__construct();
+        if($this->session->userdata('level', true) != 'Admin'){
+            echo '<script>window.location.href = "'.base_url().'";</script>';
+        }
     }
 
     public function index()

@@ -6,6 +6,9 @@ class Home extends CI_Controller
     public function __construct()
     {
         parent::__construct();
+        if(empty($this->session->userdata('login', true))){
+            echo '<script>window.location.href = "'.base_url().'";</script>';
+        }
     }
 
     public function index()
