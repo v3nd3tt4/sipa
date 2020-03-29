@@ -93,4 +93,75 @@ class Obat extends CI_Controller
             echo '<script>window.history.back();</script>';
         }
     }
+
+    public function tambah_stok($id_obat){
+        $data['title'] = 'Tambah Stok';
+        $data['script'] = 'obat/script';
+
+
+        $query = $this->db->get_where('tb_obat', array('id_obat' => $id_obat));
+        $data['obat'] = $query;
+
+        $query_satuan = $this->db->get('tb_satuan');
+        $data['satuan'] = $query_satuan;
+        
+        $this->load->view('_layout_sifa/header', $data);
+        $this->load->view('_layout_sifa/sidebar', $data);
+        $this->load->view('_layout_sifa/topbar', $data);
+        $this->load->view('obat/tambah_stok', $data);
+        $this->load->view('_layout_sifa/footer', $data);
+    }
+
+    public function strore_stok(){
+        $sum_jumlah_beli = $this->input->post('jumlah_unit', true) * $this->input->post('harga_beli', true);
+        $sum_jumlah_jual = $this->input->post('jumlah_unit', true) * $this->input->post('harga_jual', true);
+        $cek = $this->db->get_where('tb_stok', array('id_obat' => $this->input->post('id_obat', true)));
+        if($cek->num_rows() == 0){
+            $status = 'stok awal';
+        }else{
+            $status = 'pembelian';
+        }
+        $data_to_save = array(
+            'id_obat'		    => $this->input->post('id_obat', true),
+            'tanggal_transaksi'	        => $this->input->post('tanggal', true),
+            'nomor_faktur'		=> $this->input->post('nomor_faktur', true),
+            'jumlah_unit'	    => $this->input->post('jumlah_unit', true),
+            'id_satuan'	        => $this->input->post('id_satuan', true),
+            'harga_beli'	    => $this->input->post('harga_beli', true),
+            'harga_jual'	    => $this->input->post('harga_jual', true),
+            'sum_harga_beli'   => $sum_jumlah_beli,
+            'sum_harga_jual'   => $sum_jumlah_jual,
+            'status'            => $status
+        );
+        $simpan = $this->db->insert('tb_stok', $data_to_save);
+        if($simpan){
+            echo '<script>alert("Berhasil disimpan");</script>';
+            echo '<script>window.location.href = "'.base_url().'obat/riwayat_stok/'.$this->input->post('id_obat', true).'";</script>';
+        }else{
+            echo '<script>alert("Gagal disimpan");</script>';
+            echo '<script>window.history.back();</script>';
+        }
+    }
+
+    public function riwayat_stok($id_obat){
+        $data['title'] = 'Riwayat Stok';
+        $data['script'] = 'obat/script';
+
+        $this->db->from('tb_stok');
+        $this->db->join('tb_obat', 'tb_obat.id_obat = tb_stok.id_obat');
+        $this->db->join('tb_satuan', 'tb_satuan.id_satuan = tb_stok.id_satuan');
+        $this->db->where(array('tb_stok.id_obat' => $id_obat));
+        $query = $this->db->get();
+        $data['riwayat'] = $query;
+
+        $query1 = $this->db->get_where('tb_obat', array('id_obat' => $id_obat));
+        $data['obat'] = $query1;
+        
+        $this->load->view('_layout_sifa/header', $data);
+        $this->load->view('_layout_sifa/sidebar', $data);
+        $this->load->view('_layout_sifa/topbar', $data);
+        $this->load->view('stok/riwayat', $data);
+        $this->load->view('_layout_sifa/footer', $data);
+    }
+
 }

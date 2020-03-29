@@ -16,7 +16,8 @@
     <div class="sidebar-heading">
         Features
     </div>
-    <li class="nav-item <?=$title=='Unit' || $title=='Tambah Unit' || $title=='Edit Unit' || $title=='Pasien' || $title=='Tambah Pasien' || $title=='Edit Pasien' || $title=='Dokter' || $title=='Tambah Dokter' || $title=='Edit Dokter' || $title=='Satuan' || $title=='Tambah Satuan' || $title=='Edit Satuan' || $title=='Obat' || $title=='Tambah Obat' || $title=='Edit Obat' ? 'active' :'' ?>">
+    <?php if($this->session->userdata('level') == 'Admin'){?>
+    <li class="nav-item <?=$title=='Unit' || $title=='Tambah Unit' || $title=='Edit Unit' || $title=='Pasien' || $title=='Tambah Pasien' || $title=='Edit Pasien' || $title=='Dokter' || $title=='Tambah Dokter' || $title=='Edit Dokter' || $title=='Satuan' || $title=='Tambah Satuan' || $title=='Edit Satuan' || $title=='Obat' || $title=='Tambah Obat' || $title=='Tambah Stok' || $title=='Edit Obat' || $title=='Tambah Stok' || $title=='Riwayat Stok' ? 'active' :'' ?>">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseBootstrap" aria-expanded="true" aria-controls="collapseBootstrap">
             <i class="far fa-fw fa-window-maximize"></i>
             <span>Master Data</span>
@@ -30,16 +31,26 @@
                 <a class="collapse-item <?=$title=='Pasien' || $title=='Tambah Pasien' || $title=='Edit Pasien' ? 'active' :'' ?>" href="<?= base_url(); ?>pasien">Data Pasien</a>
                 <a class="collapse-item <?=$title=='Satuan' || $title=='Tambah Satuan' || $title=='Edit Satuan' ? 'active' :'' ?>" href="<?= base_url(); ?>satuan">Data Satuan</a>
                 
-                <a class="collapse-item <?=$title=='Obat' || $title=='Tambah Obat' || $title=='Edit Obat' ? 'active' :'' ?>" href="<?= base_url(); ?>obat">Data Obat</a>
+                <a class="collapse-item <?=$title=='Obat' || $title=='Tambah Obat' || $title=='Edit Obat' || $title=='Tambah Stok' || $title=='Riwayat Stok'  ? 'active' :'' ?>" href="<?= base_url(); ?>obat">Data Obat</a>
             </div>
         </div>
     </li>
-    <li class="nav-item">
-        <a class="nav-link" href="<?= base_url('element/form'); ?>">
+    <li class="nav-item active">
+        <a class="nav-link active" href="<?= base_url(); ?>stok">
             <i class="fab fa-fw fa-wpforms"></i>
-            <span>Forms</span>
+            <span>Transaksi</span>
         </a>
     </li>
+    <?php }?>
+
+    <?php if($this->session->userdata('level') == 'Operator'){?>
+    <li class="nav-item active">
+        <a class="nav-link active" href="<?= base_url(); ?>resep">
+            <i class="fab fa-fw fa-wpforms"></i>
+            <span>Resep</span>
+        </a>
+    </li>
+    <?php }?>
     
     <hr class="sidebar-divider">
     <div class="version" id="version-ruangadmin"></div>

@@ -22,28 +22,30 @@
         <div class="col-xl-12 col-md-12 mb-4">
             <div class="card h-100">
                 <div class="card-body">
-                    <a href="<?=base_url()?>obat/tambah" class="btn btn-outline-success mb-1 float-right"><i class="fas fa-plus"></i> Tambah</a>
+                    <a href="<?=base_url()?>stok/tambah" class="btn btn-outline-success mb-1 float-right"><i class="fas fa-plus"></i> Tambah</a>
                     <br><br><br>
+                    <p>Transaksi Terakhir</p>
                     <div class="table-responsive">
                         <table class="table table-bordered table-striped table-hover dataTables">
                             <thead>
                                 <tr>
                                     <td>No</td>
-                                    <td>Kode Obat</td>
-                                    <td>Nama Obat</td>
+                                    <td>Kode Stok</td>
+                                    <td>Nama Stok</td>
                                     <td>Aksi</td>
                                 </tr>
                             </thead>
                             <tbody>
-                                <?php $no=1;foreach($obat->result() as $row_obat){?>
+                                <?php $no=1;foreach($stok->result() as $row_stok){?>
                                 <tr>
                                     <td><?=$no++?>.</td>
-                                    <td><?=$row_obat->kode_obat?></td>
-                                    <td><?=$row_obat->nama_obat?></td>
+                                    <td><?=$row_stok->kode_stok?></td>
+                                    <td><?=$row_stok->nama_stok?></td>
                                     <td>
-                                    <a href="<?=base_url()?>obat/remove/<?=$row_obat->id_obat?>" class="btn btn-outline-danger btn-sm mb-1 " onclick="return confirm('Apakah anda yakin akan menghapus data ini?');"><i class="fas fa-trash-alt"></i> Hapus</a>
-                                    <a href="<?=base_url()?>obat/edit/<?=$row_obat->id_obat?>" class="btn btn-outline-info btn-sm mb-1 " onclick="return confirm('Apakah anda yakin akan mengedit data ini?');"><i class="fas fa-edit"></i> Edit</a>
-                                    <a href="<?=base_url()?>obat/riwayat_stok/<?=$row_obat->id_obat?>" class="btn btn-outline-warning btn-sm mb-1 "><i class="fab fa-fw fa-wpforms"></i> Stok</a>
+                                    <a href="<?=base_url()?>stok/remove/<?=$row_stok->id_stok?>" class="btn btn-outline-danger btn-sm mb-1 " onclick="return confirm('Apakah anda yakin akan menghapus data ini?');"><i class="fas fa-trash-alt"></i> Hapus</a>
+                                    <a href="<?=base_url()?>stok/edit/<?=$row_stok->id_stok?>" class="btn btn-outline-info btn-sm mb-1 " onclick="return confirm('Apakah anda yakin akan mengedit data ini?');"><i class="fas fa-edit"></i> Edit</a>
+                                    
+
                                     </td>
                                 </tr>
                                 <?php }?>
