@@ -7,10 +7,13 @@
             <li class="breadcrumb-item active" aria-current="page">Tambah</li>
         </ol>
     </div>
-
+    <style>
+        th { font-size: 12px; }
+        td { font-size: 11px; }
+    </style>
     <div class="row mb-3">
         <!-- Earnings (Monthly) Card Example -->
-        <div class="col-xl-5 col-md-5 mb-5">
+        <div class="col-xl-4 col-md-4 mb-4">
             <div class="card h-100">
                 <div class="card-body">
                     <form action="<?=base_url()?>resep/store" method="POST">
@@ -45,38 +48,37 @@
                 </div>
             </div>
         </div>
-        <div class="col-xl-7 col-md-7 mb-7">
+
+        <div class="col-xl-8 col-md-8 mb-8">
             <div class="card h-100">
                 <div class="card-body">
-                    <form action="<?=base_url()?>resep/store" method="POST">
-                        <div class="form-group">
-                            <label for="">Obat:</label>
-                            <select name="obat" id="obat_resep" required class="form-control select2">
-                                <option value="">--pilih--</option>
-                                <?php foreach($obat->result() as $row_obat){
-                                    $stok = $row_obat->stok_awal + $row_obat->pembelian - $row_obat->penggunaan;
-                                ?>
-                                <option value="<?=$row_obat->id_obat?>" data-stok="<?=$stok?>"><?=$row_obat->kode_obat?> - <?=$row_obat->nama_obat?></option>
-                                <?php }?>
-                            </select>
-                        </div>
-                        <div class="form-group">
-                            <label for="">Stok:</label>
-                            <input type="number" class="form-control" name="stok" id="stok_resep" readonly>
-                        </div>
-                        <div class="form-group">
-                            <label for="">Jumlah:</label>
-                            <input type="number" class="form-control" name="jumlah" required>
-                        </div>
-                        <button type="submit" class="btn btn-success"><i class="fas fa-plus"></i> Tambah</button>
-                    </form>
+                    <div class="form-group">
+                        <label for="">Obat:</label>
+                        <select name="obat" id="obat_resep" required class="form-control select2">
+                            <option value="">--pilih--</option>
+                            <?php foreach($obat->result() as $row_obat){
+                                $stok = $row_obat->stok_awal + $row_obat->pembelian - $row_obat->penggunaan;
+                            ?>
+                            <option value="<?=$row_obat->id_obat?>" data-stok="<?=$stok?>"><?=$row_obat->kode_obat?> - <?=$row_obat->nama_obat?></option>
+                            <?php }?>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="">Stok:</label>
+                        <input type="number" class="form-control" name="stok" id="stok_resep" readonly>
+                    </div>
+                    <div class="form-group">
+                        <label for="">Jumlah:</label>
+                        <input type="number" class="form-control" name="jumlah" id="jumlah_resep" required>
+                    </div>
+                    <button type="button" class="btn btn-success btn-tambah"><i class="fas fa-plus"></i> Tambah</button>
                     <br/><br/>
                     <table class="table table-striped table-border">
                         <thead>
                             <tr>
-                                    <td>No</td>
-                                    <td>Obat</td>
-                                    <td>Jumlah</td>
+                                <td>No</td>
+                                <td>Obat</td>
+                                <td>Jumlah</td>
                             </tr>
                         </thead>
                     </table>

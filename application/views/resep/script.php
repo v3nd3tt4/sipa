@@ -11,5 +11,14 @@
             var stok = $this.find('option:selected').attr('data-stok'); 
             $('#stok_resep').val(stok);
         });
+
+        $(document).on('click', '.btn-tambah', function(e){
+            e.preventDefault();
+            var stok = $('#stok_resep').val();
+            var jumlah = $('#jumlah_resep').val();
+            if(jumlah > stok){
+                alert('stok tidak mencukupi');
+            }
+        });
     });
 </script>
