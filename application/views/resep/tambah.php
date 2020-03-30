@@ -11,8 +11,10 @@
         th { font-size: 12px; }
         td { font-size: 11px; }
     </style>
+    <form action="<?=base_url()?>resep/store" method="POST">
     <div class="row mb-3">
         <!-- Earnings (Monthly) Card Example -->
+        
         <div class="col-xl-4 col-md-4 mb-4">
             <div class="card h-100">
                 <div class="card-body">
@@ -71,23 +73,27 @@
                         <label for="">Jumlah:</label>
                         <input type="number" class="form-control" name="jumlah" id="jumlah_resep" required>
                     </div>
-                    <button type="button" class="btn btn-success btn-tambah"><i class="fas fa-plus"></i> Tambah</button>
+                    <button type="button" class="btn btn-success btn-sm btn-tambah"><i class="fas fa-plus"></i> Tambah</button>
                     <br/><br/>
-                    <table class="table table-striped table-border">
+                    <table class="table table-striped table-border table-trx">
                         <thead>
                             <tr>
-                                <td>No</td>
+                                <td>#</td>
                                 <td>Obat</td>
                                 <td>Jumlah</td>
+                                <td>Aksi</td>
                             </tr>
                         </thead>
+                        <tbody></tbody>
                     </table>
-                    
+                    <br>
+                    <button type="submit" class="btn btn-info btn-sm float-right"><i class="fas fa-save"></i>  Buat resep dan Selesai</button>
                 </div>
             </div>
         </div>
+        
     </div>
-
+    </form>
 
 </div>
 <!---Container Fluid-->
