@@ -84,7 +84,6 @@ class Resep extends CI_Controller
         $this->db->insert_batch('tb_resep_detail', $data2);
         $this->db->insert_batch('tb_stok', $data3);
 
-
         if ($this->db->trans_status() === FALSE)
         {
             $this->db->trans_rollback();

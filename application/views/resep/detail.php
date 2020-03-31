@@ -1,9 +1,22 @@
 <div class="container">
     <div class="row">
         <div class="col-md-12">
+            <p class="text-center"><u><b>Resep</b></u></p>
             <br><br>
             <p class="text-right">Kode Resep: <?=$row_resep->row()->kode_resep?></p> 
             <br><br>
+            <style>
+                @media print {
+                    .btn-print {
+                        display: none;
+                    }
+                }
+            </style>
+            <div class="btn-print">
+            <button class="btn  btn-success " onclick="window.print();">Cetak</button>
+            <br><br>
+            </div>
+            
             <table class="table table-striped table-bordered">
                 <tr>
                     <td>Nama Unit</td>
