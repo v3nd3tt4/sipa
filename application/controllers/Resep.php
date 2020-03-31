@@ -70,8 +70,20 @@ class Resep extends CI_Controller
                 'id_obat' => $this->input->post('obat_order', true)[$i],
                 'jumlah' => $this->input->post('obat_jumlah', true)[$i],
             );
+            $get_satuan = $this->db->get_where('tb_stok', array('id_obat' => $this->input->post('obat_order', true)[$i]));
+            $data3[] = array(
+                'id_obat'		    => $this->input->post('obat_order', true)[$i],
+                'tanggal_transaksi'	=> date('Y-m-d'),
+                'nomor_faktur'		=> $this->input->post('nama_resep', true),
+                'jumlah_unit'	    => $this->input->post('obat_jumlah', true)[$i],
+                'id_satuan'	        => $get_satuan->row()->id_satuan,
+                'status'            => 'penggunaan'
+
+            );
         }
         $this->db->insert_batch('tb_resep_detail', $data2);
+        $this->db->insert_batch('tb_stok', $data3);
+
 
         if ($this->db->trans_status() === FALSE)
         {
