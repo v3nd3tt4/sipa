@@ -17,6 +17,9 @@
             <br><br> -->
             </div>
             <button class="btn btn-danger " type="button" onclick="window.history.back();"><i class="fas fa-arrow-left"></i> Kembali</button>
+            <?php if($row_resep->row()->status == 'dibayar'){?>
+            <a href="<?=base_url()?>trx/selesai/<?=$row_resep->row()->id_resep?>" class="btn btn-success float-right" type="button" onclick="return confirm('Apakah anda yakin');"><i class="fas fa-sync"></i> Selesaikan Transaksi ini</a>
+            <?php }?>
             <br><br>
             <table class="table table-striped table-bordered">
                 <tr>
@@ -37,6 +40,11 @@
                 <tr>
                     <td>Nomor Rekam Medis</td>
                     <td>: <?=$row_resep->row()->nomor_rekam_medis?></td>
+                    
+                </tr>
+                <tr>
+                    <td>Status</td>
+                    <td>: <?=$row_resep->row()->status?></td>
                     
                 </tr>
             </table>

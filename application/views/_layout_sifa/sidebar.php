@@ -36,7 +36,7 @@
         </div>
     </li>
     <li class="nav-item active">
-        <a class="nav-link active" href="<?= base_url(); ?>stok">
+        <a class="nav-link active" href="<?= base_url(); ?>trx">
             <i class="fab fa-fw fa-wpforms"></i>
             <span>Transaksi</span>
         </a>

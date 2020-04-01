@@ -20,9 +20,10 @@
 
             if(parseInt(jumlah) > parseInt(stok)){
                 alert('stok tidak mencukupi');
-            }else if(parseInt(stok) == 0){
+            }if(parseInt(stok) == 0){
                 alert('stok tidak ada');
             }else{
+                
                 var tb = '';
                 var no = 0;
                 var obatnya = $("#obat_resep option:selected").html();

@@ -16,8 +16,7 @@
             <!-- <button class="btn  btn-success " onclick="window.print();">Cetak</button>
             <br><br> -->
             </div>
-            <button class="btn btn-danger " type="button" onclick="window.history.back();"><i class="fas fa-arrow-left"></i> Kembali</button>
-            <br><br>
+            
             <table class="table table-striped table-bordered">
                 <tr>
                     <td>Nama Unit</td>
@@ -53,12 +52,11 @@
                         <td>Jumlah</td>
                         <td>Harga Beli (per satuan)</td>
                         <td>Harga Jual (per satuan)</td>
-                        <td>Total </td>
                     </tr>
                 </thead>
                 <tbody>
                     <input type="hidden" name="id_resep_bayar" value="<?=$row_resep->row()->id_resep?>">
-                    <?php $no=1;$tot_bayar = 0;foreach($row_resep_detail->result() as $resep_detail){
+                    <?php $no=1;foreach($row_resep_detail->result() as $resep_detail){
                         $id_obat = $resep_detail->id_obat;
                     $get_max_harga_beli = $this->db->query("SELECT max(harga_beli) as ref_harga_beli from tb_stok where id_obat = '$id_obat'");    
                     $get_max_harga_jual = $this->db->query("SELECT max(harga_jual) as ref_harga_jual from tb_stok where id_obat = '$id_obat'");    
@@ -72,19 +70,15 @@
                             <?=$resep_detail->jumlah?>
                         </td>
                         <td>
-                            Rp. <?=number_format($resep_detail->harga_beli, '0', ',', '.')?>
-                            <!-- <input type="number" class="form-control" name="harga_beli_bayar[]" required> -->
+                            <small>Referensi Harga Beli: <b>Rp. <?=$get_max_harga_beli->row()->ref_harga_beli?></b></small>
+                            <input type="number" class="form-control" name="harga_beli_bayar[]" required>
                         </td>
                         <td>
-                        Rp. <?=number_format($resep_detail->harga_jual, '0', ',', '.')?>
-                            <!-- <input type="number" class="form-control" name="harga_jual_bayar[]" required> -->
-                        </td>
-                        <td>
-                            <?php $t = $resep_detail->jumlah * $resep_detail->harga_jual?>
-                            Rp. <?=number_format($t, '0', ',', '.')?>
+                            <small>Referensi Harga Jual: <b>Rp. <?=$get_max_harga_jual->row()->ref_harga_jual?></b></small>
+                            <input type="number" class="form-control" name="harga_jual_bayar[]" required>
                         </td>
                     </tr>
-                    <?php $tot_bayar += $t;}
+                    <?php }
                     if($row_resep_detail->num_rows() < 3 ){
                         for($i=0;$i<$row_resep_detail->num_rows()+3;$i++){
                     ?>
@@ -94,20 +88,15 @@
                         <td></td>
                         <td></td>
                         <td></td>
-                        <td></td>
                     </tr>
                     <?php
                         }
                     } 
                     ?>
                 </tbody>
-                <tfoot>
-                    <tr>
-                        <td colspan="5"><p class="text-right"><b>Total Bayar</b></p></td>
-                        <td>Rp. <?=number_format($tot_bayar, '0', ',', '.')?></td>
-                    </tr>
-                </tfoot>
+                
             </table>
+            <button class="btn btn-success float-right" ><i class="fas fa-arrow-right"></i>  Selanjutnya</button>
             </form>
             <br>
             <br>
