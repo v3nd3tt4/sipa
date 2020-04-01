@@ -51,6 +51,15 @@
         </a>
     </li>
     <?php }?>
+
+    <?php if($this->session->userdata('level') == 'Kasir'){?>
+    <li class="nav-item active">
+        <a class="nav-link active" href="<?= base_url(); ?>kasir">
+            <i class="fab fa-fw fa-wpforms"></i>
+            <span>Transaksi</span>
+        </a>
+    </li>
+    <?php }?>
     
     <hr class="sidebar-divider">
     <div class="version" id="version-ruangadmin"></div>
