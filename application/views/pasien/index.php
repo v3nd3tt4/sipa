@@ -22,6 +22,7 @@
                                 <td>No</td>
                                 <td>NIK</td>
                                 <td>Nama</td>
+                                <td>Jenis</td>
                                 <td>Aksi</td>
                             </tr>
                         </thead>
@@ -31,6 +32,7 @@
                                 <td><?=$no++?>.</td>
                                 <td><?=$row_data->nik?></td>
                                 <td><?=$row_data->nama?></td>
+                                <td><?=$row_data->jenis?></td>
                                 <td>
                                 <a href="<?=base_url()?>pasien/remove/<?=$row_data->id_pasien?>" class="btn btn-outline-danger btn-sm mb-1 " onclick="return confirm('Apakah anda yakin akan menghapus data ini?');"><i class="fas fa-trash-alt"></i> Hapus</a>
                                 <a href="<?=base_url()?>pasien/edit/<?=$row_data->id_pasien?>" class="btn btn-outline-info btn-sm mb-1 " onclick="return confirm('Apakah anda yakin akan mengedit data ini?');"><i class="fas fa-edit"></i> Edit</a>

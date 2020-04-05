@@ -61,6 +61,7 @@ class Pasien extends CI_Controller
                 'rw' => $this->input->post('rw', true),
                 'kelurahan' => $this->input->post('kelurahan', true),
                 'alamat' => $this->input->post('alamat', true), 
+                'jenis' => $this->input->post('jenis', true), 
             );
             $simpan = $this->db->insert('tb_pasien', $data_to_save);
             if($simpan){
@@ -126,6 +127,7 @@ class Pasien extends CI_Controller
                     'rw' => $this->input->post('rw', true),
                     'kelurahan' => $this->input->post('kelurahan', true),
                     'alamat' => $this->input->post('alamat', true), 
+                    'jenis' => $this->input->post('jenis', true), 
                 );
                 $simpan = $this->db->update('tb_pasien', $data_to_save, array('id_pasien'=> $this->input->post('id_pasien', true)));
                 if($simpan){
@@ -147,6 +149,7 @@ class Pasien extends CI_Controller
                 'rw' => $this->input->post('rw', true),
                 'kelurahan' => $this->input->post('kelurahan', true),
                 'alamat' => $this->input->post('alamat', true), 
+                'jenis' => $this->input->post('jenis', true), 
             );
             $simpan = $this->db->update('tb_pasien', $data_to_save, array('id_pasien'=> $this->input->post('id_pasien', true)));
             if($simpan){

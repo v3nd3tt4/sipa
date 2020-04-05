@@ -17,8 +17,14 @@
             <br><br> -->
             </div>
             <button class="btn btn-danger " type="button" onclick="window.history.back();"><i class="fas fa-arrow-left"></i> Kembali</button>
-            <?php if($row_resep->row()->status == 'dibayar'){?>
-            <a href="<?=base_url()?>trx/selesai/<?=$row_resep->row()->id_resep?>" class="btn btn-success float-right" type="button" onclick="return confirm('Apakah anda yakin');"><i class="fas fa-sync"></i> Selesaikan Transaksi ini</a>
+            <?php if($row_resep->row()->jenis == 'umum'){?>
+                <?php if($row_resep->row()->status == 'dibayar'){?>
+                <a href="<?=base_url()?>trx/selesai/<?=$row_resep->row()->id_resep?>" class="btn btn-success float-right" type="button" onclick="return confirm('Apakah anda yakin');"><i class="fas fa-sync"></i> Selesaikan Transaksi ini</a>
+                <?php }?>
+            <?php }else if($row_resep->row()->jenis == 'pasien jaminan'){?>
+                <?php if($row_resep->row()->status != 'selesai'){?>
+                <a href="<?=base_url()?>trx/selesai/<?=$row_resep->row()->id_resep?>" class="btn btn-success float-right" type="button" onclick="return confirm('Apakah anda yakin');"><i class="fas fa-sync"></i> Selesaikan Transaksi ini</a>
+                <?php }?>
             <?php }?>
             <br><br>
             <table class="table table-striped table-bordered">
@@ -35,6 +41,11 @@
                 <tr>
                     <td>Nama Pasien</td>
                     <td>: <?=$row_resep->row()->nama?></td>
+                    
+                </tr>
+                <tr>
+                    <td>Jenis Pasien</td>
+                    <td>: <?=$row_resep->row()->jenis?></td>
                     
                 </tr>
                 <tr>

@@ -53,7 +53,14 @@
                                 <option value="Kong Hu Cu" <?=$row->row()->agama == 'Kong Hu Cu' ? 'selected' : ''?>>Kong Hu Cu</option>
                             </select>
                         </div>
-                            
+                        <div class="form-group">
+                            <label for="">Jenis</label>
+                            <select name="jenis" id="" class="form-control" required>
+                                <option value="">--pilih--</option>
+                                <option value="umum" <?=$row->row()->jenis == 'umum' ? 'selected' : ''?>>umum</option>
+                                <option value="pasien jaminan" <?=$row->row()->jenis == 'pasien jaminan' ? 'selected' : ''?>>pasien jaminan</option>
+                            </select>
+                        </div>
                     </div>
                 </div>
             </div>

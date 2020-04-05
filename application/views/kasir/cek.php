@@ -13,11 +13,10 @@
                 }
             </style>
             <div class="btn-print">
-            <!-- <button class="btn  btn-success " onclick="window.print();">Cetak</button>
-            <br><br> -->
-            </div>
             <button class="btn btn-danger " type="button" onclick="window.history.back();"><i class="fas fa-arrow-left"></i> Kembali</button>
+            <button class="btn  btn-success " onclick="window.print();">Cetak</button>
             <br><br>
+            </div>
             <table class="table table-striped table-bordered">
                 <tr>
                     <td>Nama Unit</td>
@@ -32,6 +31,11 @@
                 <tr>
                     <td>Nama Pasien</td>
                     <td>: <?=$row_resep->row()->nama?></td>
+                    
+                </tr>
+                <tr>
+                    <td>Jenis Pasien</td>
+                    <td>: <?=$row_resep->row()->jenis?></td>
                     
                 </tr>
                 <tr>

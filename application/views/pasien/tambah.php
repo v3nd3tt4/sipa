@@ -51,7 +51,14 @@
                                 <option value="Kong Hu Cu">Kong Hu Cu</option>
                             </select>
                         </div>
-                            
+                        <div class="form-group">
+                            <label for="">Jenis</label>
+                            <select name="jenis" id="" class="form-control" required>
+                                <option value="">--pilih--</option>
+                                <option value="umum">umum</option>
+                                <option value="pasien jaminan">pasien jaminan</option>
+                            </select>
+                        </div>
                     </div>
                 </div>
             </div>
