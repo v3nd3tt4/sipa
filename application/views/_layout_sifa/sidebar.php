@@ -7,7 +7,7 @@
         <div class="sidebar-brand-text mx-3">SIPA</div>
     </a>
     <hr class="sidebar-divider my-0">
-    <li class="nav-item active">
+    <li class="nav-item">
         <a class="nav-link" href="<?= base_url(); ?>">
             <i class="fas fa-fw fa-tachometer-alt"></i>
             <span>Dashboard</span></a>
@@ -44,8 +44,8 @@
     <?php }?>
 
     <?php if($this->session->userdata('level') == 'Operator'){?>
-    <li class="nav-item active">
-        <a class="nav-link active" href="<?= base_url(); ?>resep">
+    <li class="nav-item <?=$title=='Resep' ? 'active' : ''?>">
+        <a class="nav-link" href="<?= base_url(); ?>resep">
             <i class="fab fa-fw fa-wpforms"></i>
             <span>Resep</span>
         </a>
@@ -53,10 +53,16 @@
     <?php }?>
 
     <?php if($this->session->userdata('level') == 'Kasir'){?>
-    <li class="nav-item active">
-        <a class="nav-link active" href="<?= base_url(); ?>kasir">
+    <li class="nav-item <?=$title=='Kasir' ? 'active' : ''?>">
+        <a class="nav-link " href="<?= base_url(); ?>kasir">
             <i class="fab fa-fw fa-wpforms"></i>
             <span>Transaksi</span>
+        </a>
+    </li>
+    <li class="nav-item <?=$title=='Laporan' ? 'active' : ''?>">
+        <a class="nav-link " href="<?= base_url(); ?>laporan">
+            <i class="fab fa-fw fa-wpforms"></i>
+            <span>Laporan</span>
         </a>
     </li>
     <?php }?>

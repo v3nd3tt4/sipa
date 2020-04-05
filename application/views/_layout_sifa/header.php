@@ -17,6 +17,9 @@
         .collapse-item.active{
             background: #f1f1f1;
         }
+        .sidebar .nav-item.active{
+            background: #f1f1f1;
+        }
     </style>
 </head>
 

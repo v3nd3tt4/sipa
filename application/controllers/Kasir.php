@@ -84,7 +84,7 @@ class Kasir extends CI_Controller
         $this->db->trans_begin();
 
         $id_resep = $this->input->post('id_resep_bayar', true);
-        $update_resep = $this->db->update('tb_resep', array('status' => 'dibayar', 'tanggal_bayar' => date('Y-m-d')), array('id_resep' => $id_resep));
+        $update_resep = $this->db->update('tb_resep', array('status' => 'dibayar', 'id_kasir' => $this->session->userdata('id_user'), 'tanggal_bayar' => date('Y-m-d')), array('id_resep' => $id_resep));
 
         $get_kode_resep = $this->db->get_where('tb_resep', array('id_resep' => $id_resep));
         $kode_resep = $get_kode_resep->row()->kode_resep;
