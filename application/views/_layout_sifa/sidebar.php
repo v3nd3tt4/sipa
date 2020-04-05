@@ -35,10 +35,16 @@
             </div>
         </div>
     </li>
-    <li class="nav-item active">
-        <a class="nav-link active" href="<?= base_url(); ?>trx">
+    <li class="nav-item <?=$title=='Transaksi' ? 'active' : ''?>">
+        <a class="nav-link" href="<?= base_url(); ?>trx">
             <i class="fab fa-fw fa-wpforms"></i>
             <span>Transaksi</span>
+        </a>
+    </li>
+    <li class="nav-item <?=$title=='Persediaan' ? 'active' : ''?>">
+        <a class="nav-link " href="<?= base_url(); ?>persediaan">
+            <i class="fab fa-fw fa-wpforms"></i>
+            <span>Persediaan</span>
         </a>
     </li>
     <?php }?>
@@ -50,6 +56,7 @@
             <span>Resep</span>
         </a>
     </li>
+    
     <?php }?>
 
     <?php if($this->session->userdata('level') == 'Kasir'){?>
