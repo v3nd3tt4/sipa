@@ -47,4 +47,30 @@ class Persediaan extends CI_Controller
         $this->load->view('persediaan/cetak', $data);
     }
 
+    public function kartu_stok($id_obat){
+        $obat = $this->db->get_where('tb_obat', array('id_obat' => $id_obat));
+        $data['obat'] = $obat;
+        $data['title'] = 'Persediaan';
+        $this->load->view('_layout_sifa/header', $data);
+        $this->load->view('_layout_sifa/sidebar', $data);
+        $this->load->view('_layout_sifa/topbar', $data);
+        $this->load->view('persediaan/kartu_stok', $data);
+        $this->load->view('_layout_sifa/footer', $data);
+    }
+    
+    public function proses_kartu_stok(){
+        $tanggal_awal = $this->input->post('tanggal_awal', true);
+        $tanggal_akhir = $this->input->post('tanggal_akhir', true);
+        $id_obat = $this->input->post('id_obat', true);
+        $obat = $this->db->get_where('tb_obat', array('id_obat' => $id_obat));
+        $data['obat'] = $obat;
+
+        $stok = $this->db->get_where('tb_stok', array('id_obat' => $id_obat));
+        $stok = $this->db->query("SELECT * from tb_stok where id_obat = '".$id_obat."' and tanggal_transaksi between '$tanggal_awal' and '$tanggal_akhir'");
+
+        $data['stok'] = $stok;
+        $data['title'] = 'Kartu Stok';
+        $this->load->view('_layout_sifa/header', $data);
+        $this->load->view('persediaan/cetak_kartu_stok', $data);
+    }
 }

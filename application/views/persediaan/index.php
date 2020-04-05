@@ -46,7 +46,7 @@
                                     <td><?=$stok?></td>
                                     <td>
                                    
-                                    <a href="<?=base_url()?>persediaan/kartu_stok/<?=$row_obat->id_obat?>" class="btn btn-outline-warning btn-sm mb-1 "><i class="fab fa-fw fa-wpforms"></i> Rekap</a>
+                                    <a href="<?=base_url()?>persediaan/kartu_stok/<?=$row_obat->id_obat?>" class="btn btn-outline-warning btn-sm mb-1 "><i class="fab fa-fw fa-wpforms"></i> Kartu Stok</a>
                                     </td>
                                 </tr>
                                 <?php }?>

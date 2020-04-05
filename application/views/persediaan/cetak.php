@@ -26,7 +26,7 @@
                         <td>Saldo Awal</td>
                         <td>Bertambah</td>
                         <td>Berkurang</td>
-                        <td>Stok Tersedia</td>
+                        <td>Saldo Akhir</td>
                     </tr>
                 </thead>
                 <tbody>

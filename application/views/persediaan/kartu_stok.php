@@ -5,8 +5,9 @@
         <ol class="breadcrumb">
             
             <ol class="breadcrumb">
-            <li class="breadcrumb-item"><a href="<?=base_url()?>persediaan">Persediaan</a></li>
-                <li class="breadcrumb-item active" aria-current="page">Kartu Persediaan</li>
+                <li class="breadcrumb-item"><a href="<?=base_url()?>persediaan">Persediaan</a></li>
+                <li class="breadcrumb-item" >Kartu Stok</li>
+                <li class="breadcrumb-item active" aria-current="page"><?=$obat->row()->nama_obat?></li>
             </ol>
         </ol>
     </div>
@@ -24,9 +25,13 @@
         <div class="col-xl-6 col-md-6 mb-6">
             <div class="card h-100">
                 <div class="card-body">
-                    <p>Kartu Persediaan</p><hr>
-                    <form action="<?=base_url()?>persediaan/proses_rekap" method="POST">
-                        
+                    <p>Kartu Stok</p><hr>
+                    <form action="<?=base_url()?>persediaan/proses_kartu_stok" method="POST">
+                        <div class="form-group">
+                            <label for="">Obat</label>
+                            <input type="hidden" name="id_obat" value="<?=$obat->row()->id_obat?>">
+                            <input type="text" class="form-control" name="obat" value="<?=$obat->row()->nama_obat?>" readonly required> 
+                        </div>
                         <div class="form-group">
                             <label for="">Tanggal Awal</label>
                             <input type="date" name="tanggal_awal" id="" class="form-control" required>
