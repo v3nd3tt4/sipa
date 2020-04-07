@@ -29,6 +29,9 @@
 <script src="<?= base_url('assets/'); ?>vendor/datatables/jquery.dataTables.min.js"></script>
 <script src="<?= base_url('assets/'); ?>vendor/datatables/dataTables.bootstrap4.min.js"></script>
 
+<link href="<?=base_url()?>assets/select2/css/select2.min.css" rel="stylesheet" />
+<script src="<?=base_url()?>assets/select2/js/select2.min.js"></script>
+
 <script>
     $(document).ready(function(){
         $('.dataTables').dataTable();
