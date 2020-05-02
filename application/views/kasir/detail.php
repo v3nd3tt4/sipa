@@ -50,7 +50,7 @@
                         <td>No</td>
                         <td>Obat</td>
                         <td>Jumlah</td>
-                        <td>Harga Beli (per satuan)</td>
+                        <td style="display:none">Harga Beli (per satuan)</td>
                         <td>Harga Jual (per satuan)</td>
                     </tr>
                 </thead>
@@ -69,9 +69,9 @@
                             <input type="hidden" class="form-control" value="<?=$resep_detail->jumlah?>" name="jumlah_bayar[]">
                             <?=$resep_detail->jumlah?>
                         </td>
-                        <td>
+                        <td style="display:none">
                             <small>Referensi Harga Beli: <b>Rp. <?=$get_max_harga_beli->row()->ref_harga_beli?></b></small>
-                            <input type="number" class="form-control" name="harga_beli_bayar[]" required>
+                            <input type="number" class="form-control" name="harga_beli_bayar[]" value="<?=$get_max_harga_beli->row()->ref_harga_beli?>" required>
                         </td>
                         <td>
                             <small>Referensi Harga Jual: <b>Rp. <?=$get_max_harga_jual->row()->ref_harga_jual?></b></small>

@@ -17,7 +17,7 @@
             
         }
     </style>
-    <form action="<?=base_url()?>obat/strore_stok" method="POST">
+    <form action="<?=base_url()?>obat/store_stok" method="POST">
     <div class="row mb-3">
         <!-- Earnings (Monthly) Card Example -->
         <div class="col-xl-6 col-md-6 mb-4">
@@ -37,14 +37,14 @@
                         <input type="date" class="form-control" name="tanggal" required>
                     </div>
                     <div class="form-group">
-                        <label for="">Nomor Faktur/Nomor PBF:</label>
-                        <input type="text" class="form-control" name="nomor_faktur" required>
+                        <label for="">Tanggal Jatuh Tempo:</label>
+                        <input type="date" class="form-control" name="tanggal_jatuh_tempo" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="">Tanggal Kadaluarsa:</label>
+                        <input type="date" class="form-control" name="tanggal_kadaluarsa" required>
                     </div>
                     
-                    <div class="form-group">
-                        <label for="">Jumlah Unit:</label>
-                        <input type="number" class="form-control" name="jumlah_unit" required>
-                    </div>
                 </div>
             </div>
         </div>
@@ -52,8 +52,25 @@
             <div class="card h-100">
                 <div class="card-body">
                     <div class="form-group">
+                        <label for="">Nomor Faktur/Nomor PBF:</label>
+                        <input type="text" class="form-control" name="nomor_faktur" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="">PBF:</label>
+                        <select name="id_pbf"  class="form-control select2" required>
+                            <option value="">--pilih--</option>
+                            <?php foreach($pbf->result() as $row_pbf){?>
+                            <option value="<?=$row_pbf->id_pbf?>"><?=$row_pbf->nama_pbf?></option>
+                            <?php }?>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="">Jumlah Unit:</label>
+                        <input type="number" class="form-control" name="jumlah_unit" required>
+                    </div>
+                    <div class="form-group">
                         <label for="">Satuan:</label>
-                        <select name="id_satuan"  class="form-control" required>
+                        <select name="id_satuan"  class="form-control select2" required>
                             <option value="">--pilih--</option>
                             <?php foreach($satuan->result() as $row_satuan){?>
                             <option value="<?=$row_satuan->id_satuan?>"><?=$row_satuan->nama_satuan?></option>

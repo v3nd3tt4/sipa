@@ -50,7 +50,7 @@
                         <td>No</td>
                         <td>Obat</td>
                         <td>Jumlah</td>
-                        <td>Harga Beli (per satuan)</td>
+                        <td style="display:none">Harga Beli (per satuan)</td>
                         <td>Harga Jual (per satuan)</td>
                         <td>Total</td>
                     </tr>
@@ -77,7 +77,7 @@
                             <input type="hidden" class="form-control" value="<?=$resep_detail->jumlah?>" name="jumlah_bayar[]">
                             <?=$resep_detail->jumlah?>
                         </td>
-                        <td>
+                        <td style="display:none">
                             <?php echo 'RP. '.number_format($data_from_post[$i]['harga_beli'], '0', ',', '.'); ?>
                             <input type="hidden" class="form-control" name="harga_beli_bayar[]" value="<?=$data_from_post[$i]['harga_beli']?>" readonly required>
                         </td>
@@ -101,7 +101,7 @@
                         <td></td>
                         <td>&nbsp;</td>
                         <td></td>
-                        <td></td>
+                        <td style="display:none"></td>
                         <td></td>
                         <td></td>
                     </tr>
@@ -112,7 +112,7 @@
                 </tbody>
                 <tfoot>
                     <tr>
-                        <td colspan="5"><p class="text-right"><b>Total Bayar</b></p></td>
+                        <td colspan="4"><p class="text-right"><b>Total Bayar</b></p></td>
                         <td colspan="1"><?php echo 'RP. '.number_format($total_bayar, '0', ',', '.'); ?></td>
                         
                     </tr>

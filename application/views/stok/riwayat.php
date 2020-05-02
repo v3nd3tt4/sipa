@@ -10,11 +10,11 @@
     <style>
         /* th { font-size: 12px; }
         td { font-size: 11px; } */
-        .dataTables_wrapper {
+        /* .dataTables_wrapper {
             font-family: tahoma;
-            font-size: 10px;
+            font-size: 6px;
             
-        }
+        } */
     </style>
     <div class="row mb-3">
         <!-- Earnings (Monthly) Card Example -->
@@ -24,12 +24,15 @@
                 <a href="<?=base_url()?>obat/tambah_stok/<?=$obat->row()->id_obat?>" class="btn btn-outline-success btn-sm mb-1" onclick="return confirm('Apakah anda yakin akan menambah stok obat ini?');"><i class="fas fa-plus"></i> Tambah Stok</a>
                     <br><br><br>
                     <div class="table-responsive">
-                        <table class="table table-bordered table-striped table-hover dataTables">
+                        <table class="table table-bordered table-striped table-hover dataTablesRiwayat">
                             <thead>
                                 <tr>
                                     <td>No</td>
                                     <td>Tanggal</td>
-                                    <td>Nomor Faktur/Nama PBF</td>
+                                    <td>Tanggal Jatuh Tempo</td>
+                                    <td>Tanggal Kadaluarsa</td>
+                                    <td>Nomor Faktur/Nomor PBF</td>
+                                    <td>Nama PBF</td>
                                     <td>Kode Riwayat</td>
                                     <td>Nama Riwayat</td>
                                     <td>Unit</td>
@@ -45,7 +48,10 @@
                                 <tr>
                                     <td><?=$no++?>.</td>
                                     <td><?=$row_riwayat->tanggal_transaksi?></td>
+                                    <td><?=$row_riwayat->tanggal_jatuh_tempo?></td>
+                                    <td><?=$row_riwayat->tanggal_kadaluarsa?></td>
                                     <td><?=$row_riwayat->nomor_faktur?></td>
+                                    <td><?=$row_riwayat->nama_pbf?></td>
                                     <td><?=$row_riwayat->kode_obat?></td>
                                     <td><?=$row_riwayat->nama_obat?></td>
                                     <td><?=$row_riwayat->jumlah_unit?> <?=$row_riwayat->nama_satuan?></td>

@@ -25,10 +25,11 @@
             <br><br>
             <div class="btn-print">
             <button class="btn btn-danger " type="button" onclick="window.history.back();"><i class="fas fa-arrow-left"></i> Kembali</button>
-            <button class="btn  btn-success " onclick="window.print();">Cetak</button>
+            <button class="btn  btn-warning " onclick="window.print();">Cetak</button>
+            <button class="btn btn-success" onclick="exportTableToExcel('cetak-table', 'Kartu Stok <?=$obat->row()->nama_obat?> <?=$this->input->post('tanggal_awal', true)?> sd <?=$this->input->post('tanggal_akhir', true)?>')"> Export Excel </button>
             <br><br>
             </div>
-            <table class="table table-bordered table-striped table-hover dataTables">
+            <table class="table table-bordered table-striped table-hover dataTables" id="cetak-table">
                 <thead>
                     <tr>
                         <td>No</td>

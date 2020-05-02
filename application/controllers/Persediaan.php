@@ -45,6 +45,7 @@ class Persediaan extends CI_Controller
         $data['title'] = 'Laporan per periode';
         $this->load->view('_layout_sifa/header', $data);
         $this->load->view('persediaan/cetak', $data);
+        
     }
 
     public function kartu_stok($id_obat){
