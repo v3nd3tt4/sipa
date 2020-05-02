@@ -13,6 +13,32 @@ class Home extends CI_Controller
 
     public function index()
     {
+        //get kadaluarsa 
+        $data['data_kadaluarsa'] = $this->db->query("
+            select
+            * 
+            from 
+            tb_stok
+            left join tb_obat on tb_obat.id_obat = tb_stok.id_obat
+            where
+            tanggal_kadaluarsa 
+            between curdate() and 
+            DATE_add(curdate(), INTERVAL 2 MONTH)
+        ");
+
+        //get Jatuh Tempo 
+        $data['data_jatuh_tempo'] = $this->db->query("
+            select
+            * 
+            from 
+            tb_stok
+            left join tb_obat on tb_obat.id_obat = tb_stok.id_obat
+            where
+            tanggal_jatuh_tempo 
+            between curdate() and 
+            DATE_add(curdate(), INTERVAL 1 MONTH)
+        ");
+
         $data['title'] = 'Dashboard';
         $this->load->view('_layout_sifa/header', $data);
         $this->load->view('_layout_sifa/sidebar', $data);

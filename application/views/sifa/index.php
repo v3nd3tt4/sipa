@@ -16,17 +16,38 @@
                 <div class="card-body">
                     <div class="text-center">
                         <h4>Selamat Datang dalam Sistem Informasi Farmasi</h4>
+                        <hr>
                     </div>
-                    <br>
-                    <br>
-                    <br>
-                    <br>
-                    <br>
-                    <br>
-                    <br>
-                    <br>
-                    <br>
-                    <br>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="alert alert-danger">
+                                Obat yang akan kadaluarsa
+                                <hr>
+                                <ol>
+                                    <?php foreach($data_kadaluarsa->result() as $row_data){?>
+                                    <li><?=$row_data->nama_obat?> <br> Tanggal Kadaluarsa <b><?=$row_data->tanggal_kadaluarsa?></b>
+                                    <br> No.Faktur/No.PBF: <?=$row_data->nomor_faktur?> 
+                                    <br> Jumlah: <?=$row_data->jumlah_unit?> 
+                                    </li>
+                                    <?php }?>
+                                </ol>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="alert alert-warning">
+                                Obat yang akan jatuh tempo
+                                <hr>
+                                <ol>
+                                    <?php foreach($data_jatuh_tempo->result() as $row_data){?>
+                                    <li><?=$row_data->nama_obat?> <br> Tanggal Jatuh Tempo <b><?=$row_data->tanggal_jatuh_tempo?></b>
+                                    <br> No.Faktur/No.PBF: <?=$row_data->nomor_faktur?> 
+                                    <br> Jumlah: <?=$row_data->jumlah_unit?> 
+                                    </li>
+                                    <?php }?>
+                                </ol>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
