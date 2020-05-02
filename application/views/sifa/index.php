@@ -19,6 +19,7 @@
                         <hr>
                     </div>
                     <div class="row">
+                        <?php if($data_kadaluarsa->num_rows() != 0){?>
                         <div class="col-md-6">
                             <div class="alert alert-danger">
                                 Obat yang akan kadaluarsa
@@ -33,6 +34,8 @@
                                 </ol>
                             </div>
                         </div>
+                        <?php }?>
+                        <?php if($data_kadaluarsa->num_rows() != 0){?>
                         <div class="col-md-6">
                             <div class="alert alert-warning">
                                 Obat yang akan jatuh tempo
@@ -47,6 +50,7 @@
                                 </ol>
                             </div>
                         </div>
+                        <?php }?>
                     </div>
                 </div>
             </div>
