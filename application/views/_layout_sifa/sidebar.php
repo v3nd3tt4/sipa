@@ -30,7 +30,7 @@
                 <a class="collapse-item <?=$title=='Dokter' || $title=='Tambah Dokter' || $title=='Edit Dokter' ? 'active' :'' ?>" href="<?= base_url(); ?>dokter">Data Dokter</a>
                 <a class="collapse-item <?=$title=='Pasien' || $title=='Tambah Pasien' || $title=='Edit Pasien' ? 'active' :'' ?>" href="<?= base_url(); ?>pasien">Data Pasien</a>
                 <a class="collapse-item <?=$title=='Satuan' || $title=='Tambah Satuan' || $title=='Edit Satuan' ? 'active' :'' ?>" href="<?= base_url(); ?>satuan">Data Satuan</a>
-                
+                <a class="collapse-item <?=$title=='Pbf' || $title=='Tambah PBF' || $title=='Edit PBF' ? 'active' :'' ?>" href="<?= base_url(); ?>pbf">Data PBF</a>
                 <a class="collapse-item <?=$title=='Obat' || $title=='Tambah Obat' || $title=='Edit Obat' || $title=='Tambah Stok' || $title=='Riwayat Stok'  ? 'active' :'' ?>" href="<?= base_url(); ?>obat">Data Obat</a>
             </div>
         </div>
