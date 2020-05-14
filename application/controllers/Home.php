@@ -23,7 +23,7 @@ class Home extends CI_Controller
             where
             tanggal_kadaluarsa 
             between curdate() and 
-            DATE_add(curdate(), INTERVAL 2 MONTH)
+            DATE_add(curdate(), INTERVAL 6 MONTH)
         ");
 
         //get Jatuh Tempo 
