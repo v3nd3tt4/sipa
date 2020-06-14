@@ -135,6 +135,7 @@ class Obat extends CI_Controller
             'id_satuan'	        => $this->input->post('id_satuan', true),
             'harga_beli'	    => $this->input->post('harga_beli', true),
             'harga_jual'	    => $this->input->post('harga_jual', true),
+            'no_batch'	    => $this->input->post('no_batch', true),
             'sum_harga_beli'    => $sum_jumlah_beli,
             'sum_harga_jual'    => $sum_jumlah_jual,
             'status'            => $status

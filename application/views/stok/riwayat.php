@@ -40,6 +40,7 @@
                                     <td>Jumlah</td>
                                     <td>Harga Jual</td>
                                     <td>Jumlah</td>
+                                    <td>No. Batch</td>
                                     <td>Status</td>
                                 </tr>
                             </thead>
@@ -61,6 +62,9 @@
                                     <td>Rp. <?=number_format($row_riwayat->sum_harga_jual, 2, ',', '.')?></td>
                                     <td>
                                     <?=$row_riwayat->status?>
+                                    </td>
+                                    <td>
+                                    <?=$row_riwayat->no_batch?>
                                     </td>
                                 </tr>
                                 <?php }?>

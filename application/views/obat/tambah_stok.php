@@ -44,7 +44,10 @@
                         <label for="">Tanggal Kadaluarsa:</label>
                         <input type="date" class="form-control" name="tanggal_kadaluarsa" required>
                     </div>
-                    
+                    <div class="form-group">
+                        <label for="">No Batch:</label>
+                        <input type="text" class="form-control" name="no_batch">
+                    </div>
                 </div>
             </div>
         </div>
