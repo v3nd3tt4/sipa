@@ -188,45 +188,47 @@ CREATE TABLE `tb_stok` (
   `sum_harga_jual` int(11) NOT NULL,
   `status` enum('stok awal','pembelian','penggunaan') NOT NULL,
   `terpakai` int(11) NOT NULL,
+  `no_batch` varchar(255) NOT NULL,
   PRIMARY KEY (`id_stok`),
   KEY `id_obat` (`id_obat`),
   KEY `tb_satuan` (`id_satuan`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
-INSERT INTO `tb_stok` (`id_stok`, `id_obat`, `tanggal_transaksi`, `tanggal_kadaluarsa`, `tanggal_jatuh_tempo`, `id_pbf`, `nomor_faktur`, `jumlah_unit`, `id_satuan`, `harga_beli`, `harga_jual`, `sum_harga_beli`, `sum_harga_jual`, `status`, `terpakai`) VALUES
-(1,	2,	'2020-03-29',	NULL,	NULL,	0,	'hhahaa.ai/aajaja',	4,	1,	25000,	28000,	100000,	112000,	'stok awal',	0),
-(2,	2,	'2020-03-30',	NULL,	NULL,	0,	'001/sjsjj',	15,	1,	26000,	29000,	390000,	435000,	'pembelian',	0),
-(3,	2,	'2020-03-29',	NULL,	NULL,	0,	'hhahaa.ai/aajaja',	4,	1,	25000,	28000,	100000,	112000,	'stok awal',	0),
-(4,	1,	'2020-04-01',	NULL,	NULL,	0,	'fak003',	125,	1,	4300,	5200,	537500,	650000,	'stok awal',	0),
-(5,	2,	'2020-04-01',	NULL,	NULL,	0,	'resep04',	12,	1,	26000,	29000,	312000,	348000,	'penggunaan',	0),
-(6,	1,	'2020-04-01',	NULL,	NULL,	0,	'resep04',	9,	1,	4300,	5200,	38700,	46800,	'penggunaan',	0),
-(7,	4,	'2020-04-01',	NULL,	NULL,	0,	'FAK007/kimia farma',	325,	2,	4000,	6000,	1300000,	1950000,	'stok awal',	0),
-(8,	4,	'2020-04-02',	NULL,	NULL,	0,	'FAK009/kimia farma',	100,	2,	4500,	6500,	450000,	650000,	'pembelian',	0),
-(9,	4,	'2020-04-02',	NULL,	NULL,	0,	'resep05',	75,	2,	4500,	6500,	337500,	487500,	'penggunaan',	0),
-(10,	2,	'2020-04-02',	NULL,	NULL,	0,	'resep05',	5,	1,	26000,	29000,	130000,	145000,	'penggunaan',	0),
-(11,	4,	'2020-04-02',	NULL,	NULL,	0,	'resep06',	65,	2,	4500,	6500,	292500,	422500,	'penggunaan',	0),
-(12,	1,	'2020-04-02',	NULL,	NULL,	0,	'resep06',	43,	1,	4300,	5200,	184900,	223600,	'penggunaan',	0),
-(13,	2,	'2020-04-02',	NULL,	NULL,	0,	'resep06',	3,	1,	26000,	29000,	78000,	87000,	'penggunaan',	0),
-(14,	1,	'2020-04-05',	NULL,	NULL,	0,	'resep07',	3,	1,	0,	0,	0,	0,	'penggunaan',	0),
-(15,	2,	'2020-04-05',	NULL,	NULL,	0,	'resep07',	2,	1,	0,	0,	0,	0,	'penggunaan',	0),
-(16,	4,	'2020-04-05',	NULL,	NULL,	0,	'resep07',	4,	2,	0,	0,	0,	0,	'penggunaan',	0),
-(17,	5,	'2020-04-09',	NULL,	NULL,	0,	'fak007',	254,	1,	5000,	7000,	1270000,	1778000,	'stok awal',	0),
-(18,	5,	'2020-04-09',	NULL,	NULL,	0,	'resep08',	12,	1,	0,	0,	0,	0,	'penggunaan',	0),
-(19,	1,	'2020-04-09',	NULL,	NULL,	0,	'resep08',	5,	1,	0,	0,	0,	0,	'penggunaan',	0),
-(20,	5,	'2020-04-09',	NULL,	NULL,	0,	'resep0010',	32,	1,	5000,	7000,	160000,	224000,	'penggunaan',	0),
-(21,	2,	'2020-04-09',	NULL,	NULL,	0,	'resep0010',	1,	1,	26000,	29000,	26000,	29000,	'penggunaan',	0),
-(22,	4,	'2020-04-09',	NULL,	NULL,	0,	'resep0010',	5,	2,	4500,	6500,	22500,	32500,	'penggunaan',	0),
-(23,	6,	'2020-04-25',	NULL,	NULL,	0,	'fak0014/kl',	500,	1,	6000,	8000,	3000000,	4000000,	'stok awal',	0),
-(24,	7,	'2020-04-25',	NULL,	NULL,	0,	'hhahaa.ai/aajajaiii',	450,	1,	1500,	3000,	675000,	1350000,	'stok awal',	0),
-(25,	7,	'2020-04-25',	NULL,	NULL,	0,	'001/sjsjj887',	100,	1,	2000,	4000,	200000,	400000,	'pembelian',	0),
-(26,	7,	'2020-04-05',	NULL,	NULL,	0,	'stok awal',	300,	1,	1000,	2000,	300000,	600000,	'pembelian',	0),
-(27,	6,	'2020-04-25',	NULL,	NULL,	0,	'resep0014',	30,	1,	6000,	9000,	180000,	270000,	'penggunaan',	0),
-(28,	7,	'2020-04-25',	NULL,	NULL,	0,	'resep0014',	25,	1,	2000,	4000,	50000,	100000,	'penggunaan',	0),
-(29,	6,	'2020-04-25',	NULL,	NULL,	0,	'resep047363',	4,	1,	0,	0,	0,	0,	'penggunaan',	0),
-(30,	7,	'2020-04-25',	NULL,	NULL,	0,	'resep047363',	7,	1,	0,	0,	0,	0,	'penggunaan',	0),
-(31,	5,	'2020-04-25',	NULL,	NULL,	0,	'resep047363',	8,	1,	0,	0,	0,	0,	'penggunaan',	0),
-(32,	7,	'2020-05-01',	'2020-07-02',	'2020-07-02',	1,	'hhahaa.ai/aajajaueyet',	540,	1,	2500,	4000,	1350000,	2160000,	'pembelian',	0),
-(33,	5,	'2020-05-02',	'2020-05-01',	'2020-05-22',	2,	'001/sjsjjfatet',	340,	1,	1450,	3400,	493000,	1156000,	'pembelian',	0);
+INSERT INTO `tb_stok` (`id_stok`, `id_obat`, `tanggal_transaksi`, `tanggal_kadaluarsa`, `tanggal_jatuh_tempo`, `id_pbf`, `nomor_faktur`, `jumlah_unit`, `id_satuan`, `harga_beli`, `harga_jual`, `sum_harga_beli`, `sum_harga_jual`, `status`, `terpakai`, `no_batch`) VALUES
+(1,	2,	'2020-03-29',	NULL,	NULL,	0,	'hhahaa.ai/aajaja',	4,	1,	25000,	28000,	100000,	112000,	'stok awal',	0,	''),
+(2,	2,	'2020-03-30',	NULL,	NULL,	0,	'001/sjsjj',	15,	1,	26000,	29000,	390000,	435000,	'pembelian',	0,	''),
+(3,	2,	'2020-03-29',	NULL,	NULL,	0,	'hhahaa.ai/aajaja',	4,	1,	25000,	28000,	100000,	112000,	'stok awal',	0,	''),
+(4,	1,	'2020-04-01',	NULL,	NULL,	0,	'fak003',	125,	1,	4300,	5200,	537500,	650000,	'stok awal',	0,	''),
+(5,	2,	'2020-04-01',	NULL,	NULL,	0,	'resep04',	12,	1,	26000,	29000,	312000,	348000,	'penggunaan',	0,	''),
+(6,	1,	'2020-04-01',	NULL,	NULL,	0,	'resep04',	9,	1,	4300,	5200,	38700,	46800,	'penggunaan',	0,	''),
+(7,	4,	'2020-04-01',	NULL,	NULL,	0,	'FAK007/kimia farma',	325,	2,	4000,	6000,	1300000,	1950000,	'stok awal',	0,	''),
+(8,	4,	'2020-04-02',	NULL,	NULL,	0,	'FAK009/kimia farma',	100,	2,	4500,	6500,	450000,	650000,	'pembelian',	0,	''),
+(9,	4,	'2020-04-02',	NULL,	NULL,	0,	'resep05',	75,	2,	4500,	6500,	337500,	487500,	'penggunaan',	0,	''),
+(10,	2,	'2020-04-02',	NULL,	NULL,	0,	'resep05',	5,	1,	26000,	29000,	130000,	145000,	'penggunaan',	0,	''),
+(11,	4,	'2020-04-02',	NULL,	NULL,	0,	'resep06',	65,	2,	4500,	6500,	292500,	422500,	'penggunaan',	0,	''),
+(12,	1,	'2020-04-02',	NULL,	NULL,	0,	'resep06',	43,	1,	4300,	5200,	184900,	223600,	'penggunaan',	0,	''),
+(13,	2,	'2020-04-02',	NULL,	NULL,	0,	'resep06',	3,	1,	26000,	29000,	78000,	87000,	'penggunaan',	0,	''),
+(14,	1,	'2020-04-05',	NULL,	NULL,	0,	'resep07',	3,	1,	0,	0,	0,	0,	'penggunaan',	0,	''),
+(15,	2,	'2020-04-05',	NULL,	NULL,	0,	'resep07',	2,	1,	0,	0,	0,	0,	'penggunaan',	0,	''),
+(16,	4,	'2020-04-05',	NULL,	NULL,	0,	'resep07',	4,	2,	0,	0,	0,	0,	'penggunaan',	0,	''),
+(17,	5,	'2020-04-09',	NULL,	NULL,	0,	'fak007',	254,	1,	5000,	7000,	1270000,	1778000,	'stok awal',	0,	''),
+(18,	5,	'2020-04-09',	NULL,	NULL,	0,	'resep08',	12,	1,	0,	0,	0,	0,	'penggunaan',	0,	''),
+(19,	1,	'2020-04-09',	NULL,	NULL,	0,	'resep08',	5,	1,	0,	0,	0,	0,	'penggunaan',	0,	''),
+(20,	5,	'2020-04-09',	NULL,	NULL,	0,	'resep0010',	32,	1,	5000,	7000,	160000,	224000,	'penggunaan',	0,	''),
+(21,	2,	'2020-04-09',	NULL,	NULL,	0,	'resep0010',	1,	1,	26000,	29000,	26000,	29000,	'penggunaan',	0,	''),
+(22,	4,	'2020-04-09',	NULL,	NULL,	0,	'resep0010',	5,	2,	4500,	6500,	22500,	32500,	'penggunaan',	0,	''),
+(23,	6,	'2020-04-25',	NULL,	NULL,	0,	'fak0014/kl',	500,	1,	6000,	8000,	3000000,	4000000,	'stok awal',	0,	''),
+(24,	7,	'2020-04-25',	NULL,	NULL,	0,	'hhahaa.ai/aajajaiii',	450,	1,	1500,	3000,	675000,	1350000,	'stok awal',	0,	''),
+(25,	7,	'2020-04-25',	NULL,	NULL,	0,	'001/sjsjj887',	100,	1,	2000,	4000,	200000,	400000,	'pembelian',	0,	''),
+(26,	7,	'2020-04-05',	NULL,	NULL,	0,	'stok awal',	300,	1,	1000,	2000,	300000,	600000,	'pembelian',	0,	''),
+(27,	6,	'2020-04-25',	NULL,	NULL,	0,	'resep0014',	30,	1,	6000,	9000,	180000,	270000,	'penggunaan',	0,	''),
+(28,	7,	'2020-04-25',	NULL,	NULL,	0,	'resep0014',	25,	1,	2000,	4000,	50000,	100000,	'penggunaan',	0,	''),
+(29,	6,	'2020-04-25',	NULL,	NULL,	0,	'resep047363',	4,	1,	0,	0,	0,	0,	'penggunaan',	0,	''),
+(30,	7,	'2020-04-25',	NULL,	NULL,	0,	'resep047363',	7,	1,	0,	0,	0,	0,	'penggunaan',	0,	''),
+(31,	5,	'2020-04-25',	NULL,	NULL,	0,	'resep047363',	8,	1,	0,	0,	0,	0,	'penggunaan',	0,	''),
+(32,	7,	'2020-05-01',	'2020-07-02',	'2020-07-02',	1,	'hhahaa.ai/aajajaueyet',	540,	1,	2500,	4000,	1350000,	2160000,	'pembelian',	0,	''),
+(33,	5,	'2020-05-02',	'2020-05-01',	'2020-05-22',	2,	'001/sjsjjfatet',	340,	1,	1450,	3400,	493000,	1156000,	'pembelian',	0,	''),
+(34,	1,	'2020-07-28',	'2020-06-30',	'2020-06-30',	1,	'jjd',	3,	1,	2000,	3000,	6000,	9000,	'pembelian',	0,	'02929');
 
 DROP TABLE IF EXISTS `tb_unit`;
 CREATE TABLE `tb_unit` (
@@ -264,4 +266,4 @@ CREATE TABLE `view_total_stok` (`id_obat` int(11), `kode_obat` varchar(255), `na
 DROP TABLE IF EXISTS `view_total_stok`;
 CREATE ALGORITHM=UNDEFINED SQL SECURITY DEFINER VIEW `view_total_stok` AS select `t1`.`id_obat` AS `id_obat`,`t1`.`kode_obat` AS `kode_obat`,`t1`.`nama_obat` AS `nama_obat`,(select sum(`t2`.`jumlah_unit`) from `tb_stok` `t2` where ((`t2`.`id_obat` = `t1`.`id_obat`) and (`t2`.`status` = 'stok awal'))) AS `stok_awal`,(select sum(`t3`.`jumlah_unit`) from `tb_stok` `t3` where ((`t3`.`id_obat` = `t1`.`id_obat`) and (`t3`.`status` = 'pembelian'))) AS `pembelian`,(select sum(`t4`.`jumlah_unit`) from `tb_stok` `t4` where ((`t4`.`id_obat` = `t1`.`id_obat`) and (`t4`.`status` = 'penggunaan'))) AS `penggunaan` from `tb_obat` `t1`;
 
--- 2020-05-14 14:04:08
+-- 2020-06-14 04:00:37
